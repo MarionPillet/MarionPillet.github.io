@@ -566,7 +566,7 @@
         <a class="btn btn-ghost" href="#contact">Me contacter</a>
       </div>
       <div class="social-row">
-        <a class="social-btn" href="mailto:pillet.marion@gmail.com" aria-label="Email">
+        <a class="social-btn js-email-link" href="#" data-user="pillet.marion" data-domain="gmail.com" aria-label="Email">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"></path><path d="M22 6l-10 7L2 6"></path></svg>
         </a>
         <a class="social-btn" href="https://www.linkedin.com/in/marion-pillet-32b59a72" target="_blank" rel="noopener" aria-label="LinkedIn">
@@ -896,7 +896,7 @@
       <h2>Discutons de votre prochain projet</h2>
       <p>Disponible pour des collaborations en écologie marine, écotoxicologie et analyse de données environnementales.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="mailto:pillet.marion@gmail.com">pillet.marion@gmail.com</a>
+        <a class="btn btn-primary js-email-link" href="#" data-user="pillet.marion" data-domain="gmail.com">M'envoyer un email
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/marion-pillet-32b59a72" target="_blank" rel="noopener">LinkedIn</a>
       </div>
     </div>
@@ -910,6 +910,15 @@
 </footer>
 
 <script>
+  // Build email links from data attributes (avoids plain-text email in page source)
+  document.querySelectorAll('.js-email-link').forEach(link => {
+    const address = link.dataset.user + '@' + link.dataset.domain;
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.location.href = 'mailto:' + address;
+    });
+  });
+
   // Mobile nav toggle
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
