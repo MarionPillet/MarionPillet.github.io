@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marion Pillet — Ingénieure de recherche</title>
+<meta name="description" content="Marion Pillet — Ingénieure de recherche en écologie marine, analyse de données, écotoxicologie et coordination de projets scientifiques.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #ECE7DA;
+    --paper-card: #F7F4EB;
+    --ink: #1C2B33;
+    --ink-soft: #3E4E56;
+    --teal: #2B6668;
+    --teal-soft: #7C9C9B;
+    --ochre: #A6752A;
+    --line: #C9C2AE;
+    --line-soft: #DAD4C3;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3{
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+  }
+
+  a{ color: var(--teal); }
+
+  .mono{
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.01em;
+  }
+
+  /* ---------- Notebook spine ---------- */
+  .spine-wrap{
+    max-width: 920px;
+    margin: 0 auto;
+    padding-left: 34px;
+    position: relative;
+  }
+  .spine-wrap::before{
+    content:"";
+    position:absolute;
+    left: 6px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--line);
+  }
+  .tick{
+    position:absolute;
+    left: 0px;
+    width: 12px;
+    height: 1px;
+    background: var(--line);
+  }
+
+  section{
+    position: relative;
+    padding: 56px 24px 56px 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  section:last-of-type{ border-bottom: none; }
+
+  .eyebrow-mark{
+    position:absolute;
+    left: -34px;
+    top: 60px;
+    font-size: 11px;
+    color: var(--teal-soft);
+    background: var(--paper);
+    padding: 2px 0;
+  }
+
+  h2.section-title{
+    font-size: 1.65rem;
+    margin-bottom: 28px;
+    max-width: 480px;
+  }
+
+  /* ---------- Hero ---------- */
+  header.hero{
+    padding: 72px 24px 48px 0;
+    display: grid;
+    grid-template-columns: 1.3fr 0.9fr;
+    gap: 40px;
+    align-items: start;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .hero-name{
+    font-size: 3.1rem;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .hero-name .first{ display:block; font-weight: 400; color: var(--ink-soft); }
+  .hero-name .last{ display:block; font-weight: 600; }
+
+  .hero-title{
+    margin-top: 14px;
+    font-size: 1.05rem;
+    color: var(--teal);
+    font-weight: 500;
+  }
+
+  .hero-pitch{
+    margin-top: 22px;
+    max-width: 46ch;
+    color: var(--ink-soft);
+    font-size: 1.02rem;
+  }
+
+  .tag-line{
+    margin-top: 28px;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+
+  .cta{
+    display: inline-block;
+    margin-top: 30px;
+    padding: 11px 22px;
+    background: var(--ochre);
+    color: #FBF7EE;
+    text-decoration: none;
+    font-size: 0.92rem;
+    font-weight: 500;
+    border-radius: 2px;
+  }
+  .cta:hover{ background: #8f6122; }
+
+  .portrait-block{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contour-ring{
+    position:absolute;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    z-index: 0;
+  }
+
+  .photo-frame{
+    position: relative;
+    width: 100%;
+    max-width: 240px;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    border-radius: 3px;
+    z-index: 1;
+    border: 1px solid var(--ink);
+  }
+  .photo-frame img{
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(12%);
+  }
+
+  .specimen-tag{
+    margin-top: 22px;
+    border: 1px solid var(--ink);
+    background: var(--paper-card);
+    padding: 14px 16px;
+    font-size: 0.82rem;
+    max-width: 260px;
+    z-index: 1;
+  }
+  .specimen-tag div{ margin-bottom: 5px; }
+  .specimen-tag div:last-child{ margin-bottom: 0; }
+  .specimen-tag .label{ color: var(--teal-soft); }
+
+  /* ---------- About ---------- */
+  .about-text{
+    max-width: 62ch;
+    color: var(--ink-soft);
+    font-size: 1.05rem;
+  }
+  .about-text p + p{ margin-top: 16px; }
+
+  /* ---------- Expertise ---------- */
+  .expertise-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 40px;
+  }
+  .expertise-item h3{
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .expertise-item p{
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: 0.95rem;
+  }
+
+  /* ---------- Timeline ---------- */
+  .timeline{
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+  }
+  .role{
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 20px;
+  }
+  .role-date{
+    font-size: 0.8rem;
+    color: var(--teal);
+    padding-top: 3px;
+    white-space: nowrap;
+  }
+  .role-title{
+    font-size: 1.08rem;
+    font-weight: 600;
+    font-family: 'Source Serif 4', serif;
+  }
+  .role-org{
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    margin-top: 2px;
+  }
+  .role-org .loc{ color: var(--teal-soft); }
+  .role ul{
+    margin: 10px 0 0 0;
+    padding-left: 18px;
+    color: var(--ink-soft);
+    font-size: 0.94rem;
+  }
+  .role li{ margin-bottom: 4px; }
+
+  /* ---------- Education ---------- */
+  .edu-item{
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 20px;
+    margin-bottom: 22px;
+  }
+  .edu-item:last-child{ margin-bottom: 0; }
+  .edu-date{ font-size: 0.8rem; color: var(--teal); white-space: nowrap; }
+  .edu-title{ font-weight: 600; }
+  .edu-org{ font-size: 0.88rem; color: var(--ink-soft); margin-top: 2px; }
+
+  /* ---------- Publications ---------- */
+  .pub-stats{
+    display:flex;
+    gap: 36px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+  }
+  .pub-stat .num{
+    font-family: 'Source Serif 4', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--ink);
+    display:block;
+  }
+  .pub-stat .label{
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+  }
+  .pub-list{
+    list-style: none;
+    margin: 0 0 20px 0;
+    padding: 0;
+  }
+  .pub-list li{
+    padding: 12px 0;
+    border-top: 1px solid var(--line-soft);
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+  }
+  .pub-list li:first-child{ border-top: none; }
+  .pub-list .pub-title{ color: var(--ink); }
+  .pub-list a{ font-size: 0.85rem; }
+
+  details{ margin-top: 6px; }
+  summary{
+    cursor: pointer;
+    font-size: 0.88rem;
+    color: var(--teal);
+    font-weight: 500;
+    padding: 8px 0;
+  }
+  details[open] summary{ margin-bottom: 6px; }
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding: 56px 24px 80px 0;
+    position: relative;
+  }
+  .footer-grid{
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .footer-contact div{ margin-bottom: 6px; font-size: 0.95rem; }
+  .footer-note{
+    font-size: 0.78rem;
+    color: var(--teal-soft);
+    margin-top: 40px;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 720px){
+    .spine-wrap{ padding-left: 22px; }
+    .spine-wrap::before{ left: 4px; }
+    header.hero{
+      grid-template-columns: 1fr;
+      padding-top: 48px;
+    }
+    .hero-name{ font-size: 2.3rem; }
+    .portrait-block{ margin-top: 10px; }
+    .expertise-grid{ grid-template-columns: 1fr; }
+    .role, .edu-item{ grid-template-columns: 1fr; gap: 6px; }
+    .role-date, .edu-date{ order: -1; }
+    section{ padding: 40px 16px 40px 0; }
+    .eyebrow-mark{ display:none; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="spine-wrap">
+
+  <header class="hero">
+    <div>
+      <h1 class="hero-name">
+        <span class="first">Marion</span>
+        <span class="last">Pillet</span>
+      </h1>
+      <div class="hero-title">Ingénieure de recherche · Analyses de données</div>
+      <p class="hero-pitch">
+        Écologie marine, écotoxicologie et coordination scientifique — je conçois des protocoles de suivi,
+        j'analyse des données environnementales et je fais dialoguer chercheurs, gestionnaires et décideurs publics
+        autour de la protection des milieux marins.
+      </p>
+      <a class="cta" href="CV_Marion_Pillet.pdf" download>Télécharger le CV complet (PDF)</a>
+    </div>
+
+    <div class="portrait-block">
+      <div class="contour-ring" style="width:280px; height:280px; top:-20px; left:20px;"></div>
+      <div class="contour-ring" style="width:230px; height:230px; top:5px; left:45px; border-color:var(--line-soft);"></div>
+      <div class="photo-frame">
+        <img src="marion.jpg" alt="Portrait de Marion Pillet">
+      </div>
+      <div class="specimen-tag mono">
+        <div><span class="label">loc.</span> La Rochelle, France</div>
+        <div><span class="label">mail</span> pillet.marion@gmail.com</div>
+        <div><span class="label">in</span> <a href="https://www.linkedin.com/in/marion-pillet-32b59a72" target="_blank" rel="noopener">marion-pillet</a></div>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    
+    <h2 class="section-title">À propos</h2>
+    <div class="about-text">
+      <p>
+        Docteure en océanographie, je travaille depuis plus de quinze ans sur les pressions environnementales et
+        anthropiques qui s'exercent sur les écosystèmes marins et littoraux — des ports méditerranéens aux eaux
+        du Saint-Laurent, en passant par les Antilles et le golfe de Gascogne.
+      </p>
+      <p>
+        J'aime les projets qui relient le terrain, la donnée et la décision : suivis écologiques et embarquements
+        en mer, analyses statistiques et développement d'outils de visualisation (R, Shiny), gestion d'équipes et
+        de budgets européens, et restitution des résultats aux acteurs locaux, aux politiques publiques et au
+        grand public.
+      </p>
+    </div>
+  </section>
+
+  <section id="expertise">
+    
+    <h2 class="section-title">Expertise</h2>
+    <div class="expertise-grid">
+      <div class="expertise-item">
+        <h3>Milieux &amp; espèces</h3>
+        <p>Mammifères marins, milieux marins et littoraux, écophysiologie, pressions environnementales et anthropiques.</p>
+      </div>
+      <div class="expertise-item">
+        <h3>Analyse de données</h3>
+        <p>Statistiques écologiques (variances, corrélations, régressions, ACP), R, développement d'interfaces Shiny, SIG QGIS.</p>
+      </div>
+      <div class="expertise-item">
+        <h3>Terrain</h3>
+        <p>Suivis écologiques, embarquements en mer, prélèvements d'échantillons, dissection, plongée.</p>
+      </div>
+      <div class="expertise-item">
+        <h3>Gestion de projet</h3>
+        <p>Coordination scientifique et administrative, budgets européens, comités techniques, dialogue avec les acteurs locaux et nationaux.</p>
+      </div>
+      <div class="expertise-item">
+        <h3>Enseignement &amp; encadrement</h3>
+        <p>Co-direction de stages (BTS à Master), tutorat, supervision de doctorants, cours en Licence et Master.</p>
+      </div>
+      <div class="expertise-item">
+        <h3>Vulgarisation</h3>
+        <p>Évènements grand public, organisation de colloques, communication scientifique.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="parcours">
+    
+    <h2 class="section-title">Parcours professionnel</h2>
+    <div class="timeline">
+
+      <div class="role">
+        <div class="role-date mono">2025 — 2026</div>
+        <div>
+          <div class="role-title">Ingénieure de recherche « Analyse de données »</div>
+          <div class="role-org">Observatoire PELAGIS (La Rochelle Université / CNRS) · <span class="loc">La Rochelle</span></div>
+          <ul>
+            <li>MODELCET ATL — modèle prédictif de distribution et d'abondance des cétacés en Manche et en Atlantique</li>
+            <li>Coordination de projet et appui aux politiques publiques</li>
+            <li>Développement d'outils de visualisation de données (Shiny)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="role-date mono">2022 — 2025</div>
+        <div>
+          <div class="role-title">Coordinatrice de projet</div>
+          <div class="role-org">Observatoire PELAGIS (La Rochelle Université / CNRS) · <span class="loc">La Rochelle</span></div>
+          <ul>
+            <li>Projet Delmoges — mécanismes des captures accidentelles de dauphins communs dans le golfe de Gascogne</li>
+            <li>Coordination d'une équipe de 80 personnes</li>
+            <li>Rédaction de rapports, communication (site internet, presse)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="role-date mono">2021 — 2022</div>
+        <div>
+          <div class="role-title">Biologiste marin en écotoxicologie</div>
+          <div class="role-org">STARESO · <span class="loc">Calvi</span></div>
+          <ul>
+            <li>Projet FEAMP/QUAMPO — qualité des milieux marins dans les zones portuaires en Méditerranée</li>
+            <li>Gestion de projet européen et d'équipe, enseignement, vulgarisation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="role-date mono">2019 — 2021</div>
+        <div>
+          <div class="role-title">Chercheuse chargée de projet en écotoxicologie</div>
+          <div class="role-org">Laboratoire LIENSs (UMR7266 · La Rochelle Université / CNRS) · <span class="loc">La Rochelle</span></div>
+          <ul>
+            <li>Projet FEAMP/QUAMPO, direction d'étudiants (Master), enseignement</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="role-date mono">2017 — 2019</div>
+        <div>
+          <div class="role-title">Chercheuse chargée de projet en écotoxicologie</div>
+          <div class="role-org">Laboratoire Ecosphere (Antwerp University) · <span class="loc">Anvers, Belgique</span></div>
+          <ul>
+            <li>Réponses métaboliques de la carpe commune face à des pressions multiples (métaux, température)</li>
+            <li>Supervision de 2 doctorants, co-direction de 2 stages de Master</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role">
+        <div class="role-date mono">2014 — 2017</div>
+        <div>
+          <div class="role-title">Chargée de mission « Biologie marine »</div>
+          <div class="role-org">Aquasearch · <span class="loc">Sainte-Luce, Martinique</span></div>
+          <ul>
+            <li>Recherche sur les mammifères marins de Martinique et études d'impact</li>
+            <li>Encadrement d'étudiants, communication et vulgarisation</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="formation">
+    
+    <h2 class="section-title">Formation</h2>
+
+    <div class="edu-item">
+      <div class="edu-date mono">2009 — 2013</div>
+      <div>
+        <div class="edu-title">PhD en Océanographie</div>
+        <div class="edu-org">Institut des Sciences de la Mer (ISMER) — Université du Québec à Rimouski, Canada</div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-date mono">2007 — 2008</div>
+      <div>
+        <div class="edu-title">Master 2 — Environnements et Espaces Littoraux</div>
+        <div class="edu-org">La Rochelle Université</div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-date mono">2006 — 2007</div>
+      <div>
+        <div class="edu-title">Master 1 d'Océanographie</div>
+        <div class="edu-org">Institut des Sciences de la Mer (ISMER) — Université du Québec à Rimouski, Canada</div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-date mono">2005 — 2006</div>
+      <div>
+        <div class="edu-title">Licence de Biologie et Écologie Marine</div>
+        <div class="edu-org">Institute of Marine Science — University of Portsmouth, Angleterre</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications">
+    
+    <h2 class="section-title">Publications</h2>
+
+    <div class="pub-stats">
+      <div class="pub-stat">
+        <span class="num mono">15+</span>
+        <span class="label">articles à comité de lecture</span>
+      </div>
+      <div class="pub-stat">
+        <span class="num mono">2</span>
+        <span class="label">chapitres d'ouvrage</span>
+      </div>
+      <div class="pub-stat">
+        <span class="num mono">20+</span>
+        <span class="label">communications en congrès</span>
+      </div>
+    </div>
+
+    <ul class="pub-list">
+      <li>
+        <div class="pub-title">Active and passive biomonitoring of trace elements, polycyclic aromatic hydrocarbons, and polychlorobiphenyls in small Mediterranean harbours</div>
+        Castrec, Pillet et al. — Marine Pollution Bulletin, 2023 · <a href="https://doi.org/10.1016/j.marpolbul.2023.114578" target="_blank" rel="noopener">DOI</a>
+      </li>
+      <li>
+        <div class="pub-title">Preliminary inter-port study of the quality of environments using physiological responses of invertebrates exposed to chronic trace element and organic contamination in Corsica</div>
+        Pillet et al. — Ecotoxicology, 2023 · <a href="https://doi.org/10.1007/s10646-023-02635-w" target="_blank" rel="noopener">DOI</a>
+      </li>
+      <li>
+        <div class="pub-title">Physiological performance of common carp (Cyprinus carpio) exposed to a sublethal copper/zinc/cadmium mixture</div>
+        Pillet et al. — Comparative Biochemistry and Physiology Part C, 2021 · <a href="https://doi.org/10.1016/j.cbpc.2020.108954" target="_blank" rel="noopener">DOI</a>
+      </li>
+      <li>
+        <div class="pub-title">Effects of exposure to hypoxia on metabolic pathways in northern shrimp and Greenland halibut</div>
+        Pillet et al. — Journal of Experimental Marine Biology and Ecology, 2016 · <a href="https://doi.org/10.1016/j.jembe.2016.07.002" target="_blank" rel="noopener">DOI</a>
+      </li>
+    </ul>
+
+    <details>
+      <summary>Voir davantage de publications</summary>
+      <ul class="pub-list">
+        <li>
+          <div class="pub-title">First characterisation of seasonal variations in biomarkers baseline in Patella sp. from Mediterranean ports</div>
+          Pillet et al. — Marine Pollution Bulletin, 2023 · <a href="https://doi.org/10.1016/j.marpolbul.2022.114524" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          <div class="pub-title">First insight into the development of a new transcriptomic tool in French Corsica harbors</div>
+          Pillet et al. — Marine Pollution Bulletin, 2022 · <a href="https://doi.org/10.1016/j.marpolbul.2022.114173" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          <div class="pub-title">Temperature effects during a sublethal chronic metal mixture exposure on common carp</div>
+          Castaldo, Pillet et al. — Frontiers in Physiology, 2021 · <a href="https://doi.org/10.3389/fphys.2021.651584" target="_blank" rel="noopener">DOI</a>
+        </li>
+        <li>
+          <div class="pub-title">Antagonistic bioaccumulation of waterborne Cu(II) and Cd(II) in common carp and effects on ion-homeostasis and defensive mechanisms</div>
+          Castaldo, Pillet et al. — Aquatic Toxicology, 2020
+        </li>
+        <li>
+          <div class="pub-title">Investigating the effects of a sub-lethal metal mixture of Cu, Zn and Cd on bioaccumulation and ionoregulation in common carp</div>
+          Castaldo, Pillet et al. — Aquatic Toxicology, 2020
+        </li>
+        <li>
+          <div class="pub-title">Peruvian scallop Argopecten purpuratus: from a key aquaculture species to a promising biondicator species</div>
+          Loaiza, Pillet et al. — Chemosphere, 2020
+        </li>
+        <li>
+          <div class="pub-title">Limited oxidative stress in common carp exposed to a sublethal tertiary metal mixture</div>
+          Pillet et al. — Comparative Biochemistry and Physiology Part C, 2019
+        </li>
+        <li>
+          <div class="pub-title">Northern shrimp oxygen consumption and metabolic enzyme activities are severely constrained by hypoxia in the Estuary and Gulf of St. Lawrence</div>
+          Dupont-Prinet, Pillet et al. — Journal of Experimental Marine Biology and Ecology, 2013
+        </li>
+        <li>
+          <div class="pub-title">Determination of fish trophic levels in an estuarine system</div>
+          Pasquaud, Pillet et al. — Estuarine, Coastal and Shelf Science, 2010
+        </li>
+      </ul>
+      <p style="font-size:0.85rem; color:var(--ink-soft); margin-top:8px;">
+        Liste complète (articles, chapitres, rapports et communications) disponible dans le
+        <a href="CV_Marion_Pillet.pdf" download>CV complet en PDF</a>.
+      </p>
+    </details>
+  </section>
+
+  <footer>
+    
+    <div class="footer-grid">
+      <div class="footer-contact">
+        <div><strong>Marion Pillet</strong></div>
+        <div class="mono">pillet.marion@gmail.com</div>
+        <div class="mono"><a href="https://www.linkedin.com/in/marion-pillet-32b59a72" target="_blank" rel="noopener">linkedin.com/in/marion-pillet</a></div>
+        <div class="mono">La Rochelle, France</div>
+      </div>
+      <a class="cta" href="CV_Marion_Pillet.pdf" download>Télécharger le CV complet</a>
+    </div>
+    <div class="footer-note">Dernière mise à jour · septembre 2026</div>
+  </footer>
+
+</div>
+
+</body>
+</html>
